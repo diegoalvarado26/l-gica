@@ -1,0 +1,73 @@
+%Carattere dimensione 12
+\documentclass[12pt]{report}
+
+%Margini e interlinea
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1in]{geometry}
+\pagestyle{plain}
+\linespread{1.5}
+
+%Librerie utili
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{libertine}
+\usepackage{graphicx}
+\usepackage{floatflt}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{subfig}
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{amsmath}
+\usepackage{framed}
+\usepackage{minibox}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage[strict]{changepage}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\pgfplotsset{width=11cm,compat=1.9}
+\usepgfplotslibrary{external}
+\tikzexternalize
+
+\begin{document}
+\title{Lógica Matemática}
+\author{Gustavo Bitocchi}
+\date{date}
+
+\begin{titlepage}
+\begin{figure}[t]
+    \centering\includegraphics[width=0.3\textwidth]{SharedImages/logo.png}
+\end{figure}
+\begin{center}
+    \textsc{ \LARGE \textbf{Universidad Austral}{ \\}}
+	\textsc{ \LARGE{Facultad de Ingeniería \\ }}
+	\textnormal{ \Large{Lógica \\}}
+	\vspace{5mm}
+	\fontsize{10mm}{10mm}\selectfont 
+	 \rule[0.50]{9cm}{0.4pt}\\
+    \textup{Lógica Clásica}\\    
+    \rule[0.50\baselineskip]{9cm}{0.4pt}\\
+
+    
+\end{center}
+
+\vspace{10mm}
+
+\begin{minipage}[t]{0.47\textwidth}
+	\textnormal{\large{\bf Autor: \\}}
+	{\large PhD. Gustavo Bitocchi \\}
+\end{minipage}\hfill\begin{minipage}[t]{0.47\textwidth}\raggedleft
+	\textnormal{\large{\bf Digitalización: \\}}
+	{\large Diego Alvarado\\ Georges Demetrio Stefan}
+\end{minipage}
+
+\vspace{20mm}
+
+\centering{\large{Publicación: 1999 \\ Digitalización: 2019 }}
+
+\end{titlepage}
+
+\end{document}

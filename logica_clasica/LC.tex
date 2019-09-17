@@ -1,0 +1,1536 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{imakeidx}
+\usepackage[spanish]{babel}
+\usepackage{enumitem} % para utilizar [noitemsep, nolistsep]
+\setlist[enumerate]{label*=\arabic*.} % te crea automaticamente sub enumeraciones
+\setlength{\parindent}{2em} 
+\setlength{\parskip}{1em} % para el espacio entre párrafos
+\renewcommand{\baselinestretch}{1.1} % para el espacio entre las líneas
+\usepackage{geometry} % paquete para acomodar márgenes
+\geometry{a4paper, total={150mm,257mm}, left=30mm, top=20mm,}
+\usepackage{schemata}
+\newcommand\diagram[2]{\schema{\schemabox{#1}}{\schemabox{#2}}}
+\usepackage{outlines} % para tener item, subitem y subsubitem
+\usepackage{syllogism}
+
+% Para que los quotes tengan autor al final
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil(#1)%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}}
+  {\signed{\usebox\mybox}\end{quote}}
+  
+\begin{document}
+ 
+\tableofcontents
+
+\newpage
+
+\section{Introducción}
+
+\subsection{Ubicación epistemológica}
+
+\subsubsection{¿Cómo ubicar epistemológicamente a la Lógica?}
+    Precisemos algunos términos:
+\begin{itemize}[noitemsep,nolistsep]
+    \item[] ubi = lugar (del latín)   
+    \item[] episteme = ciencia (del griego)
+    \item[] logos = razón o estudio de (del griego)
+\end{itemize}
+
+    Concretamente, ¿Qué lugar ocupa esta ciencia racional en el contexto de las demás ciencias? \par
+    Aquí nos detendremos, primeramente, en la así llamada Lógica Clásica, más adelante nos ocuparemos de la Lógica Matemática. \par
+    Ubicaremos a la Lógica Clásica dentro de la Filosofía, considerándola como un instrumento de ésta. Es decir, la Lógica Clásica como propedéutica de la Filosofía (del griego pro = preliminar y paideutiké = el arte de instruir), como un estudio que debe servir de preparación necesaria para tratar la problemática filosófica.
+
+\subsubsection{¿Qué es, entonces, la Filosofía?}
+    Algunas definiciones:
+    
+\begin{itemize}[noitemsep,nolistsep]
+    \item[] \textbf{Nominal-etimológica} (del latín nomen = razón o estudio de, es decir el estudio del origen del nombre): Amor a la Sabiduría, pues Filo = amor (del griego) y sofía = sabiduría (del griego).
+    \item[] \textbf{Real}: ``Conocimiento cierto$^1$ de todas las cosas$^2$ por medio de la luz natural de la razón$^3$, explicadas por sus causas primeras en el orden del ser y últimas en el orden del conocer$^4$.'' (Del filósofo tomista francés Jacques Maritain [1882 - 1973]. ``Tomista'' significa que es un seguidor de la filosofía de Sto. Tomás de Aquino [1225 - 1274]).
+\end{itemize}
+    
+    Analicemos esta última definición:
+\begin{itemize}[noitemsep,nolistsep]
+    \item[] $^1$ Dotado de certeza, por oposición al conocimiento meramente probable, y con mayor razón al dudoso o erróneo.
+    \item[] $^2$ No de cada cosa una por una, sino de todas las cosas en sus características generales.
+    \item[] $^3$ Para distinguirla de la Teología sobrenatural, que se vale de la luz sobrenatural de la fe, si bien también se vale del uso de la razón.
+    \item[] $^4$ ``Causas primeras\ldots'' responde a la pregunta ¿Qué es lo primero en la realidad? ``Causas últimas\ldots'' apunta a un proceso ascendente y progresivo de conocimiento. Ambas causas son las mismas, pero desde distintos puntos de vista.
+\end{itemize}
+
+\subsubsection{¿Cómo se divide la Filosofía?}
+    En Teóricas y Prácticas: \par
+    Si el fin es ``contemplar'' la realidad extramental o mental, tendremos las Teóricas (del griego ``theorein'' = contemplar). Dentro de las Teóricas se encuentras las Teóricas Reales (Filosofía Natural, que incluye la Cosmología y la Antropología, la Filosofía Matemática y la Metafísica, que incluye una Teología Natural). \par
+    \textbf{Si la realidad es mental, tendremos la Teórica Racional. La Lógica, pues, contempla la realidad en tanto presente en mi mente.} \par
+    Entonces, ubicaremos a la Lógica dentro de la Filosofía Teórica Racional. \par
+    Si el fin es conocer para dirigir la acción, tendremos las Prácticas (que incluye la Técnica, las Bellas Artes y la Ética).
+ 
+\subsection{Definición y objeto de la Lógica}
+
+\subsubsection{¿Cuál es la definición de la Lógica?} 
+
+\begin{itemize}
+    \item[] \textbf{Definición etimológico-nominal:} Del griego ``Logiké episteme'' = Ciencia racional.
+    \item[] \textbf{Definición real:} En tanto que ciencia hay muchas definiciones de Lógica, por el momento daremos una: ``Es el estudio de las relaciones racionales entre conceptos en tanto presentes en mi mente''. 
+        Conviene dar aquí dos definiciones de ciencia.
+        \subitem \textbf{Clásica o aristotélica:} ``Conocimiento cierto por sus causas''.
+        \subitem \textbf{Moderna:} ``Conjunto de conocimientos metódicamente adquiridos y sistemá-ticamente organizados''.
+    \item[] \textbf{Definición como arte:} Existe también una definición (o cuasi-definición) de la Lógica como ``arte'', y es esta: ``Es el arte que dirige al mismísimo acto racional, gracias al cual, el hombre puede proceder con orden, facilidad y sin error en dicho acto''. 
+\end{itemize}
+
+    Aquí entendemos ``arte'' como un saber sujeto a ciertas normas (Santo Tomás define al arte como ``\ldots cierta ordenación de la razón acerca de qué modo, por medios determinados, los actos humanos lleguen a debido fin''. En su ``Comentario a los `Posteriores Analíticos' de Aristóteles''; Proemio, números. 1-4).
+
+\subsubsection{¿Cuál es el objeto de la Lógica?}
+    Conviene distinguir:
+\begin{itemize}[noitemsep,nolistsep]
+    \item[] \textbf{Objeto material ordenable:} Los conceptos, pues son los ``ladrillos'' de toda la ``construcción'' lógica.
+    \item[] \textbf{Objeto material dirigible:} Los actos de la razón, pues la razón dirige para que la construcción de ese orden sea recta.
+    \item[] \textbf{Objeto formal:} Las relaciones de razón (o racionales) entre conceptos.
+\end{itemize}
+    
+    Algunas aclaraciones:
+\begin{itemize}[noitemsep,nolistsep]
+    \item[] \textbf{Objeto material:} Es aquello de lo que trata una ciencia.
+    \item[] \textbf{Objeto formal:} Es el punto de vista desde el cual se considera al objeto material.
+\end{itemize}
+
+\subsection{Necesidad de la Lógica}
+
+\subsubsection{¿Es necesaria la Lógica o podemos prescindir de ella?}
+    Veamos: \par
+    Existen 2 tipos de verdades: Una \textbf{sensible} porque es captada por nuestros sentidos en forma in-mediata (es decir, sin que medie algún raciocinio o razonamiento), por ejemplo: Este pizarrón es negro. Y otra \textbf{inteligible}, porque es captada por nuestra inteligencica. Aquí puede ser en forma in-mediata (sin que medie ningún raciocinio o razonamiento), por ejemplo: El todo es mayor que la parte; o en forma mediata (es decir, debe mediar un raciocinio o razonamiento), por ejemplo:
+    
+\begin{center}
+    Todo hombre es mortal            \\
+    \underline{Todo filósofo es hombre}  \\
+    Todo filósofo es mortal
+\end{center}
+
+    Para obtener ``Todo filósofo es mortal'' debieron mediar ``Todo hombre es mortal'' y ``Todo filósofo es hombre''. \par 
+    Analicemos este ejemplo: 
+\begin{enumerate}[noitemsep,nolistsep]
+    \item ``hombre'', ``mortal'' y ``filósofo'' son \textbf{conceptos} y en cuanto tales productos lógicos de la $1^{\textrm{\footnotesize{ra}}}$ operación de la inteligencia: La simple aprehensión.
+    \item ``Todo hombre es mortal'', ``Todo filósofo es hombre'' y ``Todo filósofo es mortal'' son \textbf{enunciaciones}, en cuanto tales productos lógicos de la $2^{\textrm{\footnotesize{da}}}$ operación de la inteligencia: El juicio.
+    \item Encontrar la ilación lógica entre ``Todo hombre es mortal'' y ``Todo filósofo es hombre'' para obtener la conclusión ``Todo filósofo es mortal'' es una \textbf{argumentación} que corresponde a la $3^{\textrm{\footnotesize{ra}}}$ operación de la inteligencia: El raciocinio o razonamiento. \\
+\end{enumerate}
+
+\begin{center}
+\begin{tabular}{ |c|c|c| } 
+    \hline
+    Lógica de la $1^{ra}$ operación & Simple aprehensión & Concepto      \\ \hline
+    Lógica de la $2^{da}$ operación & Juicio             & Enunciación   \\ \hline
+    Lógica de la $3^{ra}$ operación & Raciocinio         & Argumentación \\ 
+    \hline
+\end{tabular}
+\end{center}
+
+\subsection{Las 3 operaciones de la inteligencia}
+    A la Lógica le interesa los productos lógicos: Concepto, Enunciación y Argumentación. Sin embargo, estos productos se corresponden a 3 operaciones de la inteligencia. Conviene, entonces, referirse a la inteligencia. \par
+    El objeto propio de la inteligencia es la verdad, sin embargo, unas veces llega a ella sin necesidad de raciocinios. Aquí se la indica en su aspecto intuitivo. Otras veces, para llegar a ella se debe realizar raciocinios. Aquí se la indica en su aspecto discursivo, lo que explica que al razonar, se ``discurra'' pasando de una enunciación a otra. 
+
+\newpage
+
+\section{El Concepto}
+
+\subsection{La simple aprehensión}
+
+\subsubsection{¿Qué es la simple aprehensión?}
+    En principio diremos que es el acto de \emph{comprender} algo sin afirmar ni negar nada. \par
+    Como el objeto de la inteligencia humana es la \emph{quididad} (del latín `quid' = que, es decir, lo \emph{qué es}) o esencia, podemos decir que la simple aprehensión consiste en conocer una quididad abstracta. Si, viendo una cosa, no se comprende lo que es, no hay aún acto intelectual. Si se comprende alguna cosa, por ejemplo, qué es una máquina o un animal, se entra en el plano intelectual. \par
+    Podemos, pues, definir la simple aprehensión: Es el acto por el cual el intelecto conoce alguna esencia o quididad. \par 
+    Esta operación de la inteligencia produce algo que le interesa a la Lógica: \emph{El concepto}.
+
+\subsection{El concepto}
+    Puede definirse así: Es aquello expresado en y por la mente, en el cual conocemos intelectualmente la cosa. \par 
+    [Algunos han dividido al concepto en: Concepto formal (o subjetivo o mental) y el concepto objetivo (u objeto del concepto). El concepto formal es aquello \emph{en el} que entendemos algo; el concepto objetivo es \emph{lo que} inmediatamente entendemos en el concepto formal. \par 
+    Ejemplo: el concepto `triangulo'. Por un lado es algo producido en y por nuestro intelecto: un producto psíquico y ése es el concepto formal o subjetivo o mental; por otro lado es la presencia en nuestra mente de algo totalmente distinto de la naturaleza de esa mente y de sus actos: Es la presencia de una esencia geométrica objetiva, que pertenece no al reino de lo psíquico, sino al reino de lo matemático, y esto último es el concepto objetivo u objeto de concepto. Podríamos llamarlo también concepto concipiente al formal o subjetivo, y concepto concebido al objetivo u objeto de concepto. \par 
+    El concepto objetivo puede decirse que es concepto sólo analógicamente, pues es lo conocido en el concepto formal. \par
+    A la Lógica le interesan los conceptos objetivos, pues en ellos se apoyan las relaciones de razón (o racionales)] \par
+    Importante: No debemos caer en el grave error de \emph{confundir los conceptos con las imágenes de la imaginación}. Ejemplo: El concepto `hombre'. Bajo la extensión de este concepto se ubican todos los hombres: Presentes, pasados y futuros; altos y bajos; rubios y morenos, gordos y flacos. Pero no puede haber ninguna imagen de un hombre que no tenga alguna de las características ya citadas. El concepto prescinde de ellas, pues se aplica a todos los hombres, tengan las características que tengan. La inteligencia se vale de la imaginación, pero da un paso más adelante: Abstrae. \par
+
+\newpage
+
+\subsection{La comprensión y la extensión del concepto objetivo}
+    La comprensión  del concepto objetivo: todo concepto tiene un contenido inteligible que es el conjunto de notas que lo constituyen y lo distinguen de cualquier otro. Ejemplos: \par
+    
+\begin{center}
+    \textbf{``Triángulo''} \\
+    Sus notas inteligibles son: \\
+    figura plana cerrada \\
+    tres lados \\
+    tres ángulos \\
+\end{center}
+    
+\begin{center}
+    \textbf{``Hombre''} \\
+    Sus notas inteligibles son: \\
+    corpóreo \\
+    viviente \\
+    racional
+\end{center}
+
+    La extensión del concepto  objetivo: Es la mayor o menos amplitud de tal concepto con  respecto a otros conceptos objetivos menos generales y sobretodo respecto de los singulares, que están ``bajo'' aquél. También podemos decir que la extensión del concepto objetivo es el conjunto de sujetos a los cuales es predicable. Ejemplos: \par
+    
+\begin{center}
+    \textbf{``Hombre''} \\
+    Sus conjunto de sujetos son: \\
+    todos los hombres que existieron, existen, existirán o podrían existir. \\
+\end{center}
+
+\subsubsection{Ley de las relaciones entre la comprensión y la extensión de los conceptos}
+    Son inversamente proporcionales, es decir \diagram{} 
+    {A mayor comprensión \(\longrightarrow\) menor extensión \\
+    A menor comprensión \(\longrightarrow\) mayor extensión}
+
+\begin{center}
+    Ejemplo: \textbf{``Hombre''}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ l|l } 
+    \hline
+    \textbf{Comprensión} & \textbf{Extensión} \\
+    \hline
+    \textbf{Notas inteligibles:} & \textbf{Sujetos sobre los que recae:} \\
+    racional & \textbf{ \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) } \\
+    cristiano & \textbf{ \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) } \\
+    católico & \textbf{ \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) \(\vert\) } \\
+    mujer & \textbf{ \(\vert\) \(\vert\) \(\vert\) \(\vert\)} \\
+    religiosa & \textbf{ \(\vert\) \(\vert\)} \\
+    Ana & \textbf{ \(\vert\)} \\
+    \hline
+\end{tabular}
+\end{center}
+    
+    Concretamente, a medida que vamos agregando notas inteligibles al concepto \textbf{``hombre''} (racional, cristiano, católico, mujer, religiosa y Ana) vemos que la extensión se reduce, pues se va aplicando cada vez a menos sujetos. \par
+    
+\newpage
+    
+\subsubsection{División del concepto según su extensión}
+    
+\begin{enumerate}
+    \item \textbf{Singulares (o individuales)} \\
+    Ejemplos: ``este libro'', ``Alejandrina''.
+    \item \textbf{Universales}
+    \begin{enumerate}
+        \item \textbf{No restrictos} \\
+        Ejemplo: ``Toda alumna''.
+        \item \textbf{Restrictos} \\
+        Ejemplo: ``Alguna religiosa''.
+    \end{enumerate}
+\end{enumerate}
+
+\subsubsection{División del concepto según su comprensión}
+    
+\begin{enumerate}
+    \item \textbf{Simples}
+    \begin{enumerate}
+        \item \textbf{Concretos} \\
+        Ejemplos: ``mesa'', ``hombre''.
+        \item \textbf{Abstractos} \\
+        Ejemplo: ``meseidad'', ``humanidad''.
+    \end{enumerate}
+    \item \textbf{Complejos} \\
+    Ejemplos: ``libro azul'', ``animal racional''.
+\end{enumerate}
+
+\newpage
+
+\subsection{Práctica 1}
+
+\noindent \textbf{Determinar una nota inteligible esencial y una nota inteligible accidental a los siguientes conceptos} \par
+
+\begin{enumerate}
+    \item perro \diagram{} {Nota esencial: cuadrúpedo \\ Nota accidental: guardián} 
+\end{enumerate}
+
+[La nota inteligible esencial le corresponde necesariamente a esa esencia y la nota inteligible accidental le corresponde de un modo contingente. Se puede expresar `ser...' o `tener...' o `estar...', etc.] \par
+
+\begin{itemize}
+    \item[2.] triángulo 
+    \item[3.] madre
+    \item[4.] joven
+    \item[5.] silla 
+\end{itemize}
+
+\noindent \textbf{Clasificar los siguientes conceptos según su extensión y su comprensión} \par
+
+\begin{enumerate}
+    \item Toda mesa \diagram{} {Extensión: Universal no-restricto \\ Comprensión: Simple concreto}
+    \item Algún libro azul
+    \item Roberto
+    \item Toda paternidad
+    \item Alguna divinidad griega
+    \item Dios
+    \item Alguna especialidad
+    \item Yahvé
+    \item Esta ancianidad feliz
+    \item Cristianidad
+\end{enumerate}
+
+\newpage
+
+\noindent \textbf{Relacionar los siguientes conceptos [columna de la izquierda] con las notas inteligibles (esenciales o accidentales) [columna de la derecha]} \par
+
+    \noindent 
+    mujer     \hfill mamífero/a     \vspace{0.3cm} \\ 
+    amigo/a   \hfill ovíparo/a      \vspace{0.3cm} \\
+    viviente  \hfill racional       \vspace{0.3cm} \\
+    suegra    \hfill argentino/a    \vspace{0.3cm} \\
+    tío       \hfill esposo/a       \vspace{0.3cm} \\
+    casa      \hfill irracional     \vspace{0.3cm} \\
+    pato      \hfill cuadrúpedo/a   \vspace{0.3cm} \\
+    vecino    \hfill insoportable   \vspace{0.3cm} \\
+    vaca      \hfill vertebrado     \vspace{0.3cm} \\
+    insecto   \hfill volador/a      \vspace{0.3cm} 
+
+\noindent [Nota: Las notas `esenciales' indicarlas de una manera y las `accidentales' de otra] \\ \par
+
+\noindent\textbf{Agrupar notas inteligibles de modo tal que podamos caracterizar un concepto} \par
+
+\noindent
+\begin{tabular}{ l l } 
+    a. animal      &  f. ovíparo    \\
+    b. racional    &  g. cuadrúpedo \\
+    c. plumífero   &  h. bípedo     \\
+    d. irracional  &  i. acuático   \\
+    e. mamífero    &  j. terrestre  \\
+\end{tabular}
+
+\begin{enumerate}
+    \item a / b / e / h / j: hombre
+    \item
+    \item
+    \item
+    \item
+\end{enumerate}
+
+\noindent \textbf{Ordenar las notas inteligibles según un orden especificidad, es decir, en un orden decreciente de `importancia' [De mayor extensión a menor extensión]} \par
+
+\begin{enumerate}
+    \item filósofo 3 \\
+    hombre 2 \\
+    viviente 1 \\
+    filósofo italiano 4 \\
+    napolitano  5 \\
+                  
+    \item Roberto \\
+    viviente \\
+    trabajador \\
+    analista de sistemas \\
+    persona \\
+                  
+    \item Lógica  \\
+    Filosofía racional \\
+    Filosofía teórica \\
+    Filosofía \\
+    Lógica Clásica \\
+                  
+    \item católico  \\
+    creyente \\
+    cristiano \\
+    teísta \\
+    dominico \\
+                  
+    \item músico  \\
+    Carlitos \\
+    guitarrista \\
+    persona \\
+    persona humana \\
+\end{enumerate}
+
+\noindent\textbf{Buscar un texto en libros/diarios/revistas/etc. [y citar la fuente] de no más de 5 líneas que contenga por lo menos 3 conceptos y que cada concepto contenga por lo menos una nota inteligible [esencial o accidental]. Subrayar conceptos y notas inteligibles} \par 
+
+\newpage
+
+\subsection{La división}
+    Es el conjunto de conceptos por los cuales enumeramos las partes (subjetivas) de un concepto (o todo universal). Digámoslo más fácilmente: Es delimitar la extensión del concepto. \par 
+    Toda división tiene tres elementos fundamentales. Estos son: \par
+
+\begin{center}
+\begin{tabular}{ |c| } 
+    \hline
+    \textbf{I} \\
+    \textbf{El todo a dividir} \\
+    (Ej: ``hombre'') \\ \\
+        
+    \textbf{II} \\
+    \textbf{Las partes en que se divide ese todo} \\
+    (Ej: ``blancos'', ``amarillos'', ``negros'', etc.) \\ \\
+        
+    \textbf{III} \\
+    \textbf{El fundamento divisivo} \\
+    (Ej: El ``color de piel'') \\
+    \hline
+\end{tabular}
+\end{center}
+    
+\subsubsection{División de la división*} 
+    
+\begin{outline}[enumerate]
+    \1 \textbf{Por sí misma:} Si su fundamento es intrínseco a lo dividido.
+    \2 \textbf{Nominal:} Si lo dividido es un nombre en sus diversas significaciones, como en los diccionarios.
+    \2 \textbf{No nominal:}
+    \3 \textbf{Como un todo lógico:}
+    \begin{itemize}[label={$\bullet$}]
+        \item \textbf{Unívoca}, si es un concepto unívoco el todo a dividir.
+        \item \textbf{Análoga}, si es un concepto análogo el todo a dividir.
+    \end{itemize}
+    \3 \textbf{Como un todo real:} Ese todo puede ser la esencia o no.
+    \begin{itemize}[label={$\bullet$}]
+        \item \textbf{Esencial:} Si es la esencia, es cuando decimos que el hombre se divide en cuerpo y alma.
+        \item \textbf{No esencial:} Si no es la esencia, y puede ser:
+        \begin{itemize}[label={$-$}]
+            \item \textbf{Integral:} La de un todo corpóreo en sus partes cuantitativas. Ejemplo: Cuando se divide al hombre en cabeza, tronco y extremidades.
+            \item \textbf{Potestativa:} Dividir a un todo según sus potencias, facultades o funciones. Ejemplo: Cuando dividimos al hombre en la esfera vegetativa, la esfera sensitiva y la esfera racional.
+            \item \textbf{Entitativa:} Si se divide al ente en cuanto tal, y entonces sus partes son \textbf{esencia y ser}.
+        \end{itemize}
+    \end{itemize}
+    \1 \textbf{Por sus características accidentales:} Si su fundamento es meramente accidental respecto de lo dividido.
+    \2 \textbf{Sujetos según sus accidentes:} Cuando dividimos el todo animal en blancos, negros, amarillos, etc.
+    \2 \textbf{Accidentes según los sujetos que los poseen:} Cuando dividimos lo blanco en leche, azúcar, nieve, etc.
+    \2 \textbf{Accidentes según otros accidentes:} Como cuando dividimos lo blanco en dulce, amargo, etc.
+\end{outline}
+
+\subsubsection{Leyes o reglas para una buena división} 
+    
+\begin{enumerate}
+    \item No debemos alterar el fundamento divisivo. Ejemplo: Está mal si dividimos, siguiendo el ejemplo dado respecto a los tres elementos fundamentales, al ``hombre'' en ``blancos, negros y deportistas''.
+    \item El todo a dividir debe ser igual al conjunto de las partes en que se divide. Ejemplo: Está mal si dividimos ``hombre'' en ``blancos y amarillos'' y nada más.
+    \item La división debe hacerse entre partes que se excluyan. Ejemplo: Está mal si dividimos al ``hombre'' en ``blancos, negros, amarillos y rubios'', pues ``rubio'' incluye a ``blanco''.
+    \item Debe ser breve, pues sino puede causar confusión.
+    \item[\textbf{[*} 5.] Debe estar rectamente ordenada por géneros y especies. \textbf{*]}
+\end{enumerate}
+    
+\subsection{La definición}
+    Es la oración que expone la naturaleza de una cosa. También podemos decir que es el conjunto de conceptos que expresan de una manera explícita la comprensión de un concepto. \par
+    
+\subsubsection{División de la definición*}
+    
+\begin{outline}[enumerate]
+    \1 \textbf{Nominal:} Si lo definido es un nombre.
+    \2 \textbf{Etimológica:} Si expresa las raíces y orígenes del nombre.
+    \2 \textbf{Semántica:} Si expresa una equivalencia de significado.
+    \1 \textbf{Real:} Si se refiere al objeto o al ente significado por éste.
+    \2 \textbf{Intrínseca:} Si se define por causas o principios internos a la cosa misma definida.
+    \3 \textbf{Esencial:} Si se define la esencia misma. Ejemplo: El hombre es un ``animal racional''.
+    \3 \textbf{Descriptiva:}
+    \begin{itemize}[label={$\bullet$}]
+        \item \textbf{Por propiedades:} Ejemplo: El ``hombre'' como ``animal  político'', pues ``político'' es una propiedad y no su esencia.
+        \item \textbf{Por accidentes:} Ejemplo: El ``hombre'' es un ``bípedo implume''.
+    \end{itemize}
+    \2 \textbf{Extrínseca:} Si lo hace, al menos parcialmente, por causas y principios externos a la cosa definida.
+    \3 \textbf{Por la causa eficiente:} Ejemplo: ``El alma humana es creada por Dios''.
+    \3 \textbf{Por la causa final:} Ejemplo: ``La silla es un mueble para sentarse''.
+    \3 \textbf{Genética:} Es un procedimiento que engendra la cosa. Ejemplo: ``El círculo es la figura plana que nace del movimiento de una recta alrededor de una de sus extremidades, que permanece fija''.
+    \3 \textbf{Operativa:} Define al objeto por el procedimiento de medida. Ejemplo: ``Peso es el numeral que marca la aguja de la balanza cuando el objeto es colocado en el platillo''.
+    \3 \textbf{Por la causa ejemplar:} O el modelo. Ejemplo: ``El hombre es un `yo corpóreo-espiritual' hecho a imagen y semejanza de Dios''.
+\end{outline}
+
+\subsubsection{Leyes o reglas para una buena definición} 
+    
+\begin{enumerate}
+    \item No debe ser circular, es decir, no debe contener lo definido o sinónimos de los definido. Ejemplo: Está mal si decimos que la Física estudia los fenómenos físicos.
+    \item No debe ser negativa pudiendo ser afirmativa, es decir, pudiendo decir lo que es hay que evitar definirlo por lo que no es. Ejemplo: La mesa no es silla.
+    \item No debe tener ni mayor ni menor comprensión o extensión que lo definido. Ejemplo: ``El triángulo es una figura de tres lados \emph{iguales}''. Tiene menor extensión y mayor comprensión. ``El triángulo \emph{isósceles} es  una figura de tres lados''. Tiene mayor extensión y menor comprensión.
+    \item No debe ser figura, ni ambigua, ni ``oscura''. Es decir, la definición debe ser clara. Ejemplo ``El hombre es un junco pensante''.
+    \item No debe ser extensa, en lo posible debe ser breve.
+    \item[ \textbf{[*} 6.] La definición esencial metafísica debe hacerse por el género próximo y la diferencia específica. Ejemplo: El hombre es un ``animal racional'', género próximo y diferencia específica respectivamente. \textbf{*]}
+\end{enumerate}
+    
+\newpage
+    
+\subsection{Práctica 2}
+    
+\subsubsection{Señalar qué reglas violan las siguientes `divisiones'}
+\begin{enumerate}
+    \item Europa se divide políticamente en España, Italia y Ecuador. \\
+    - Viola 1 y 2
+    \item Los creyentes se dividen en judíos, católicos, musulmanes y cristianos. \\
+    -
+    \item Los animales se dividen en racionales, irracionales y pensantes. \\
+    -
+\end{enumerate}
+    
+\subsubsection{Señalar qué reglas violan las siguientes `definiciones'}
+\begin{enumerate}
+    \item El hombre es un animal. \\
+    -
+    \item El hombre no es una piedra sino un ser ``arrojado a la existencia''. \\
+    -
+    \item El hombre es un animal racional blanco. \\ 
+    -
+\end{enumerate}
+    
+\subsubsection{Construir 2 `divisiones' que violen las 3 primeras reglas}
+\begin{enumerate}
+    \item
+    \item
+\end{enumerate}
+    
+\subsubsection{Construir 2 `definiciones' que violen la regla 3}
+\begin{enumerate}
+    \item 
+    \item
+\end{enumerate}
+    
+\subsubsection{Buscar 3 definiciones erróneas en libros/diarios/revistas/etc. [citar la fuente]. Indicar qué reglas violan}
+\begin{enumerate}
+    \item \ \\ \ \\
+    \item \ \\ \ \\
+    \item \
+\end{enumerate}
+    
+\newpage 
+    
+\subsection{La universalidad del concepto} 
+    El concepto tiene una propiedad, la de ser \textbf{universal}. ¿Qué significa esto? Que todo concepto tiene la propiedad de poder referirse (o predicarse) a muchas realidades concretas. Es decir, el concepto tiene la propiedad de ser: \par
+    
+\begin{center}
+\begin{tabular}{ |c c c| } 
+    \hline
+    \multicolumn{3}{|c|}{\textbf{UNIVERSAL}} \\
+    \hline
+    \textbf{UNUM} & \textbf{VERSUS} & \textbf{ALIA} \\
+    \textbf{Algo uno} & \textbf{referido a} & \textbf{muchas cosas} \\
+    \hline
+\end{tabular}
+\end{center}
+    
+    ¿Qué es ese ``algo uno''? Un concepto abstracto que está presente en mi mente, y que puede referirse (o predicarse) a muchas realidades concretas extra-mentales. Ejemplo: ``Lago'' puede predicarse o referirse de ``Nahuel Huapi'', ``Perito Moreno'', ``Espejo'', etc. \par
+    
+    \noindent \textbf{[*} El universal puede presentar tres ``estados'' distintos: \par
+
+    \begin{itemize}[label={$\bullet$}]
+        \item \textbf{Universal en potencia}: Es la esencia en la realidad concreta. Está intrínseca a la cosa o realidad.
+        \item \textbf{Universal material}: Es la esencia misma de la cosa o realidad.
+        \item \textbf{Universal en acto}: La esencia en  cuanto que está presente en mi mente, en abstracto.
+    \end{itemize}
+    
+    Del universal en potencia se pasa al universal en acto, al pasar separamos, es decir, abstraemos: \par
+    
+\begin{center}
+\begin{tabular}{ c c } 
+    lo concreto & de lo abstracto \\
+    lo material & de lo inmaterial \\
+    lo singular & de lo universal \\ \\
+    
+    Así se encuentra en & Así está presente \\
+    la realidad concreta & en mi mente \\
+\end{tabular}
+\end{center}
+    
+    No obstante no todos los filósofos aceptan la solución que da la Filosofía Realista, de ahí el problema: ¿Cómo pueden referirse de las cosas singulares y concretas conceptos universales y abstractos? o ¿Cómo ``alguno uno'' puede predicarse de ``muchos'' e incluso existir en ``muchos''? 
+    Precisando la postura realista: \par
+    \begin{itemize}[label={$\bullet$}]
+        \item Los universales existen en estado de potencia en la realidad concreta e individual.
+        \item Los universales pueden existir separadamente de la realidad concreta e individual, es decir, en mi mente.
+    \end{itemize}
+    Estas afirmaciones corresponden a la postura filosófica respecto a este problema, que se llama Realismo (o Realismo Moderado), la cual tendrá una corriente filosófica contradictoria por antonomasia: el Nominalismo. Este problema (Realismo o Nominalismo) lo trataremos aparte. \textbf{*]} \par
+    
+\newpage
+
+\section{La Enunciación}
+
+\subsection{El juicio}
+ El juicio es el acto por el cual el intelecto compone al afirmar y divide al negar. Esta segunda operación de la inteligencia da como resultado un producto lógico: La enunciación.
+ \par Ahora bien ¿Qué divide o compone? Conceptos. \\
+ \par Divide cuando el intelecto al comparar los conceptos \textbf{no} capta conveniencia entre los contenidos inteligibles de los mismos. Ejemplo: \\
+    
+    \begin{center}
+    \begin{tabular}{|l|cccc|} \hline
+                                 & Pedro     & no & es & perro      \\ \hline
+                     &           &    &   &            \\ 
+        contenido    & animal    &    &   & animal     \\
+        inteligible  & racional  &    &   & irracional \\
+        esencial     &           &    &   &            \\
+                     &           &    &   &            \\ \hline
+                     &           &    &   &            \\ 
+        contenido    & adulto    &    &   & cachorro   \\
+        inteligible  & pelirrojo &    &   & negro      \\
+        accidental   & etc.      &    &   & etc.       \\
+                     &           &    &   &            \\ \hline
+    \end{tabular} 
+    \end{center}
+    
+No convienen en sus contenidos inteligibles esenciales, uno es ``racional'' y el otro ``irracional''.
+\par Compone cuando el intelecto al comparar los conceptos capta conveniencia entre  los contenidos inteligibles de los mismos. Ejemplo: \\
+
+
+\begin{center}
+    \begin{tabular}{|l|ccc|} \hline
+                                 & Tomás     & es    & hombre   \\ \hline
+                     &           &       &          \\ 
+        contenido    & animal    &       & animal   \\
+        inteligible  & racional  &       & racional \\
+        esencial      &           &       &          \\
+                      &           &       &          \\ \hline
+                      &           &       &          \\ 
+        contenido     & niño      &       &          \\
+        inteligible   & travieso  &       &          \\
+        accidental    & etc.      &       &          \\
+                      &           &       &          \\ \hline
+    \end{tabular}
+    \end{center}
+
+Conviene en sus contenidos inteligibles escenciales, ambos son ``racionales''.
+
+Solo hay juicios cuando se dividen o componen conceptos con la cópulas verbales:
+\
+\begin{center}
+Cópulas Verbales
+    \diagram{}{Es \\ No es \\ Esta \\ No esta}
+\end{center}
+
+ No debemos confundir a toda composición como juicio verdadero, porque una composición puede ser verdadera (Ej: La televisión es un medio de comunicación) o falsa (Ej: El ombú es inteligente). Tampoco confundamos a toda división como un juicio falso, porque una división puede ser verdadera (Ej: Las religiosas no son laicas) o falsa (Ej: Los gatos no son felinos). \par
+    Podemos retener mejor los términos ``división'' y ``composición'' si recordamos que el primero procede de la traducción del término griego ``análisis'' y el segundo del término griego ``síntesis''. De allí que, cuando nos lanzamos al estudio de algo, primero analizamos, es decir dividimos para comenzar a comprender las partes en que se divide ese algo (o todo), luego sintetizamos, esto es componemos las partes de ese algo (o todo) para realizar la comprensión final.
+
+
+\subsubsection{Propiedad del juicio}
+El juicio tiene la propiedad (es decir, le es propio) de ser \textbf{verdadero} o \textbf{falso.} \par
+Hay \textbf{verdad} cuando la inteligencia da su asentimiento a una composición o división que concuerda con la realidad. Ejemplos: Tomás es hombre; Pedro no es perro. (Ambas son verdaderas). \par
+Hay \textbf{falsedad} cuando la inteligencia da su asentimiento a una composición o división que \textbf{no} concuerda con la realidad. Ejemplos: Tomás no es hombre; Pedro es perro. (Ambas son falsas).
+    
+\subsubsection{Necesidad del juicio}
+El juicio es necesario porque un sólo acto de simple aprehensión no puede captar todos los aspectos inteligibles de la cosa. Esto se hace mediante varios actos de simple aprehensión, lo que implica que dividimos al captarlo por separado, lo que \underline{en realidad} constituye una sola cosa.
+
+\textbf{Ejemplo:} \\
+\\
+Un acto de simple aprehensión  $\rightarrow$ ``Luis'' \\
+Otro acto simple de aprehensión $\rightarrow$ ``Hombre''
+
+\begin{enumerate}
+    \item Captamos lo que es ``Luis'' y lo que es ``hombre''. Es decir, captamos separadamente los aspectos inteligibles de una cosa: ``Luis'' - ``hombre'' (tomamos ``cosa'' en el sentido de ``realidad'', pues ``Luis'' nos es una cosa).
+    
+    Entonces, tenemos:
+    \begin{center}
+        ``Luis'' \ ``Hombre''
+    \end{center}
+    Necesitamos unirlos:
+    \begin{center}
+        ``Luis'' \textbf{es} ``hombre''
+    \end{center}
+    Pues, en realidad estan unidos.
+    
+    El juicio es, pues, necesario para nuestro conocimiento de la realidad. \\
+    
+    \item Ahora bien, puede ocurrir que en lugar de unir, divida, separe:
+    \\
+    \textbf{Ejemplo}
+    \begin{center}
+        ``Luis'' \ ``perro''
+    \end{center}
+    
+    Necesitamos dividirlos porque en la realidad están divididos o separados:
+    \begin{center}
+        ``Luis'' \textbf{no es} ``perro''
+    \end{center}
+    
+\end{enumerate}
+
+\diagram{Resumen de 1 y 2}{Reúne (o compone) lo que en realidad esta unido $\rightarrow$ \textbf{Afirma} \\ Divide lo que en realidad está dividido (o separado) $\rightarrow$ \textbf{Niega} }
+
+\subsubsection{Condiciones para la producción de la enunciación}
+\begin{enumerate}
+     \item[\textbf{1}] Juzgar es afirmar o negar algo de algo. Tenemos necesidad de \underline{conocer primero esos ``algos''}, es decir, es necesaria la simple aprehensión de los contenidos inteligibles de los conceptos que serán \textbf{sujeto} y \textbf{predicado}. \par
+        Ejemplo: ``\underline{Luis} es \underline{hombre}''. Aquí tenemos que conocer primero qué es ``Luis'' y qué es ``hombre''.
+        \item[\textbf{2}] \underline{Comparar} los contenidos inteligibles de esos dos conceptos que harán de sujeto y predicado.
+        \item[\textbf{3}] \underline{Captar} la conveniencia o disconveniencia entre dichos conceptos. \par 
+        Ejemplo: ``Luis \underline{es} hombre''.
+        \item[\textbf{4}] Una vez captada la conveniencia o no, se da el acto propio del juzgar que es el \underline{asentir}. El \underline{asentimiento} se da \textbf{No se entiende} se da a un conveniencia o no entre conceptos. El asentir la inteligencia produce la enunciación.
+
+\end{enumerate}
+
+\subsubsection{División de la enunciación}
+  \begin{itemize}
+        \item \underline{Enunciación mental:} Obra inmaterial producto del acto de juzgar presente en mi mente.
+        \item \underline{Enunciación oral:} Conjunto de palabras entrelazadas de una manera determinada. Además es signo externo de la anterior.
+       \item \underline{Enunciación Escrita:} Signo \textbf{PALABRA NO ENTENDIDA} de la enunciación oral y mediato de la mental.
+    \end{itemize}
+
+\subsubsection{Análisis de la enunciación}
+    \textbf{Primer análisis}
+    \begin{itemize}
+        \item[\textbf{1}] \textbf{Términos categoremáticos:} Significan algo de por sí. Son  el nombre o sustantivo y el verbo.
+        \item[\textbf{2}] \textbf{Términos sincategoremáticos:} \textbf{PALABRA NO ENTENDIDA} la significación de los categoremáticos. Son  el adjetivo (excepto cuando es usado sustantivamente), el adverbio, la preposición, la conjunción, el pronombre, el artículo, las negaciones (que se reducen a los adverbios) y los numerales (que se reducen al adjetivo).
+    \end{itemize}
+    
+    \textbf{Ejemplo de 1 y 2:}
+    
+   \begin{center}
+        \underline{``La cada de ahí es un lugar muy agradable''}\\
+         \begin{tabular}{c c c}
+        ``La''        & artículo    & sincategoremático \\
+        ``casa''      & nombre      & categoremático    \\
+        ``de''        & preposición & sincategoremático \\
+        ``ahí''       & adverbio    & sincategoremático \\
+        ``es''        & verbo       & categoremático    \\
+        ``un''        & adjetivo    & sincategoremático \\
+        ``lugar''     & sustantivo  & categoremático    \\
+        ``muy''       & adverbio    & sincategoremático \\
+        ``agradable'' & adjetivo    & sincategoremático \\
+        \end{tabular}
+   \end{center} 
+   \textbf{Segundo Análisis}
+   
+   \begin{center}
+       \textbf{Sujeto - Verbo - Predicado} \\
+   \end{center}
+  Y aquí surge otra clasificacion:\\
+  \begin{itemize}
+      \item \textbf{Término enunciativo de tercera adyacencia:} Cuando estan explícitos los tres elementos. Ejemplo: ``El gato es un felino''.
+      \item \textbf{Término enunciativo de segunda adyacenncia:} Cuando la cópula esta explícita en el predicado. Ejemplo: ``El gato saltó''.
+      \item \textbf{Enunciaciones virtuales o de primera adyacencia:} Cuando hay un solo término; es decir, dicciones, pero son virtualmente enunciaciones que son objeto de juicio: se afirma o se niega, y es verdadero o falso. Ejemplo: ``Saltó''.
+  \end{itemize}
+ 
+\subsection{Propiedades de la enunciación}
+
+    Trataremos algunas propiedades de la enunciación. Estas surgen de su capacidad de relacionarse entre sí. Veremos: la enunciación y la conversión.
+    
+    \begin{enumerate}
+    
+        \item \textbf{La Oposición:} \\ Es la afirmación y negación de lo mismo respecto de lo mismo. Es decir, las relaciones que existen, en cuanto a la verdad y falsedad, entre enunciaciones que afirman y, respectivamente, niegan el mismo predicado (P) del mismo sujeto (S).
+
+    
+    \begin{center}
+        Consideremos la siguiente división de la enunciación: \\
+        ~\\
+        \
+        \diagram{División de la enunciación}{\diagram{Según la cantidad}{Universal (todo) \\ Particular (algún} \\ \diagram{Según la cualidad}{Afirmativa (es) \\ Negativa (no es) }}
+        \newpage
+        
+        Si combinamos las divisiones obtenemos:
+        ~\\
+        ~\\
+        \begin{tabular}{c c}
+            \textbf{A - Universal afirmativa} & \textbf{E - Universal negativa} \\ 
+            \textbf{I - Particular afirmativa} & \textbf{O - Particular negativa}
+        \end{tabular}
+        ~\\
+        ~\\
+        
+        De aquí surge el famoso \textbf{Cuadrado de la Oposición} \\
+        ~\\
+    \end{center}
+
+    \textbf{IMAGEN DEL CUADRADO DE LA OPOSICIÓN} \\
+
+    \subsubsection{Tipos y reglas de oposición}
+    
+    \begin{itemize}
+        \item \textbf{Contradicción:} Se oponen en cuanto a la V y F. Si una es verdadera, la otra es falsa y viceversa. Se da entre A y O, y entre E e I (también entre dos singulares, una afirmativa y otra negativa). 
+        \item \textbf{Contrariedad:} Se oponen en cuanto a la V: No pueden ser V a la vez, pero sí pueden ser F a la vez. Se da entre A y E.
+        \item \textbf{Subcontrariedad:} Se oponen en cuanto a la F: No pueden ser F a la vez, pero sí pueden ser V a la vez. Se da entre I y O.
+        \item \textbf{Subalternación:} Se dá entre A e I, y entre E y O. A y E se llaman subalternantes e I y O se llaman subalternadas. Si la universal es V, la particular también. Si la universal es F, la particular puede ser V/F (V/F también puede graficarse como ``?''). Si la particular es V, la universal puede ser V/F. Si la particular es F, la universal también es F.
+        \end{itemize}
+
+    \item \textbf{La Conversión} \\
+    La conversión es la inversión del sujeto (S) y del predicado (P) de la enunciación, conservándose la cualidad (es decir, si es afirmativa o negativa) y la verdad. \par 
+    Hay tres modos de conversión:
+    
+    \begin{itemize}
+        \item[\textbf{1}] \textbf{Simple:} Se invierten S y P. Sólo se dan en las E e I. Ejemplos: \\ \vspace{-1mm} \\
+        \begin{tabular}{c c c c c}
+            E & - & Ningún cristiano es ateo    & $\longrightarrow$ & Ningún ateo es cristiano \\
+            I & - & Algún cristiano es creyente & $\longrightarrow$ & Algún creyente es cristiano
+        \end{tabular}
+        
+        \item[\textbf{2}] \textbf{Por accidente:} Se invierten S y P, y la enunciación de universal a particular. Sólo se dan en las A y E. Ejemplos: \\ \vspace{-1mm} \\
+        \begin{tabular}{c c c c c}
+            A & - & Todo católico es cristiano & $\longrightarrow$ & Algún cristiano es católico \\
+            E & - & Ningún porteño es tucumano & $\longrightarrow$ & Algún tucumano no es porteño
+        \end{tabular}
+        
+        \item[\textbf{3}] \textbf{Por contraposición:} Se invierten S y P, y una vez invertidos, a cada uno se le antepone la partícula ``no''. Se dan sólo en las A y O. Ejemplos: \\ \vspace{-1mm} \\
+        \begin{tabular}{c c c c c}
+            A & - & Todo perro es canino & $\longrightarrow$ & Todo \textbf{no}-canino es \textbf{no}-perro \\
+            O & - & Algún cristiano no es católico & $\longrightarrow$ & Algún \textbf{no}-católico es \textbf{no}-cristiano
+        \end{tabular}
+    \end{itemize}
+
+    Nota ``$\longrightarrow$'' significa ``se convierte en''.
+    \end{enumerate}
+    
+    \newpage
+
+\subsection{Práctica}
+    
+    Los siguientes ejercicios son \textbf{inferencias inmediatas}. Se llama inferencia a la operación lógica por la que se saca una conclusión a partir de una o varias proposiciones tenidas como verdaderas. Si es a partir de varias, se llamarán \textbf{inferencias mediatas}, porque deben mediar razonamientos (deductivos o inductivos). Si es a partir de una, se llamarán \textbf{inferencias inmediatas} (y consiste en pasar de una proposición a otra sin término medio). \\
+    
+    Dadas las siguientes enunciaciones y supuesto valor de verdad indicado en cada caso, determina cuáles serían sus opuestas señalando el tipo de oposición y cuál sería el valor de verdad de cada una de ellas de acuerdo a las reglas. \\
+    
+    \begin{itemize}
+        \item[\textbf{1}] Todo aborigen es mi prójimo. (V) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{2}] Algún hombre no es fiel a la palabra de Dios. (V) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{3}] Ningún templo es sagrado. (F) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{4}] Algún hombre es amigo de Dios. (V) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{5}] Todo pecador es esclavo del pecado. (V) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{6}] Algún cristiano no es católico. (V) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{7}] Ningún hombre es filósofo. (F) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{8}] Ningún cristiano es ateo. (V) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{9}] Algún cristiano es santo. (V) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{10}] Todo aborigen es mi esclavo. (F) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{11}] Ningún cristiano es Testigo de Jehová. (V) \\
+        -\\
+        -\\
+        -\\
+        \item[\textbf{12}] Algún altar no es sagrado. (F) \\
+        -\\
+        -\\
+        -\\
+    \end{itemize}
+    
+\newpage
+
+\section{La Argumentación}
+
+\subsection{El raciocionio}
+Es el acto de la razón por el cual, esta, a partir de 2 o más enunciaciones, obtiene otra que estaba virtualmente contenida en aquellas.
+
+\subsection{La argumentación}
+Es una oración que significa el seguirse algo a partir de algo otro.
+La argumentación esta constituida de la siguiente manera:
+
+\begin{center}
+\begin{tabular}{c c}
+     \textbf{A} Todo cristiano es teísta (V) & $\rightarrow$ Premisa mayor \\
+     \underline{\textbf{A} Todo católico es cristiano (V)} & $\rightarrow$ Premisa menor \\
+     \textbf{A} Todo católico es teísta (V) & $\rightarrow$ Conclusión    \\ 
+\end{tabular}
+\begin{enumerate}
+
+\subsubsection{Leyes de la argumentación}
+    \item De un antecedente verdadero (V) se sigue un consecuente verdadero (V).
+    
+    \begin{center}
+        \textbf{A} Todo filósofo es racional (V) \\
+        \underline{\textbf{A} Todo kantiano es filósofo (V)}  \\
+        \textbf{A} Todo kantiano es racional (V) \\
+    \end{center}
+    
+    \item De un antecedente falso (F) se sigue un consecuente falso (F) o accidentalmente verdadero (V).
+
+    \begin{center}
+        \textbf{A} Todo creyente es católico (F) \\
+        \underline{\textbf{A} Todo hombre es católico (F)} \\
+        \textbf{A} Todo hombre es creyente (F)
+    \end{center}
+    
+    \begin{center}
+        \textbf{A} Todo gato es felino (V) \\
+        \underline{\textbf{A} Todo mamífero es gato (F)} \\
+        \textbf{A} Todo mamífero es felino (F) \\
+    \end{center}
+    
+    \begin{center}
+        \textbf{A} Todo viviente es racional (F) \\
+        \underline{\textbf{A} Todo perro es viviente (V)} \\
+        \textbf{A} Todo perro es racional (F) \\
+    \end{center}
+      
+      También se puede partir de dos premisas falsas y llegar a una conclusión verdadera,   accidentalmente verdadera.
+
+     \begin{center}
+             \textbf{A} Todo perro es racional (F) \\
+             \underline{\textbf{A} Todo hombre es perro (F)} \\
+             \textbf{A} Todo hombre es racional (V) \\
+      \end{center}
+      
+    \item La conclusión sigue la parte más débil del antecedente.
+    
+    \begin{enumerate}
+        \item La premisa negativa es más débil que la afirmativa.
+        \item La premisa particular es más débil que la universal.
+    \end{enumerate}
+    Concretamente, entre una premisa negativa y una afirmativa, se opta por la negativa; y entre una particular y una universal, se opta por la particular. Por ejemplo:
+    
+    \begin{center}
+    \begin{tabular}{c c}
+         \textbf{E} Ningún católico es panteísta & Premisa universal - negativa \\
+         \underline{\textbf{I} Algún cristiano es católico (V)} & \underline{Premisa particular - afirmativa} \\ 
+         \textbf{O} Algún cristiano no es panteísta (V) & Premisa particular - negativa 
+         \\
+        \end{tabular}
+    \end{center}
+    
+\end{enumerate}
+ 
+
+\end{center}
+
+\subsubsection{División de la argumentación}
+
+ La argumentación como ``modo de saber'' se divide en:
+ \begin{enumerate}
+     \item Silogismo Categórico
+     \item Silogismo Hipotético
+     \item Inducción
+ \end{enumerate}
+ 
+ \subsection{El Silogismo Categórico}
+ 
+ El silogismo categórico es una argumentación en cuyo antecedente se comparan 2 términos (llamados ``extremos'') con un tercero (llamado ``medio'') y se infiere un consecuente que enuncia que esos dos primeros términos convienen o no entre sí. Por ejemplo:
+ 
+ \begin{center}
+     \textbf{A} Todo hombre es mortal (V) \\
+     \underline{\textbf{A} Todo filósofo es hombre (V)} \\
+     \textbf{A} Todo filósofo es mortal (V) \\
+ \end{center}
+ 
+ Tenemos que:
+ \begin{itemize}
+     \item ``Hombre'' es el \textbf{término medio} y se simboliza: M
+     \item ``Mortal'' es \textbf{término mayor} y se simboliza: T
+     \item ``Filósofo'' es \textbf{término menor} y se simboliza: t
+ \end{itemize}
+ 
+ \subsubsection{Principios del Silogismo Categórico}
+ \begin{enumerate}
+     \item Principio de conveniencia y discrepancia
+     \begin{enumerate}
+         \item Dos conceptos que convienen con un tercero, convienen entre sí. Por ejemplo:
+         \begin{center}
+             \textbf{E} Todo perro es animal (V) \\
+             \underline{\textbf{A} Todo `boxer' es perro (V)} \\
+             \textbf{E} Todo `boxer' es animal (V) \\
+         \end{center}
+         Tenemos que ``animal'' y ``boxer'' convienen con ``perro'', por lo tanto ``animal'' y ``boxer'' convienen entre sí.
+    \item Dos conceptos, de los cuales uno conviene con un tercero, y el otro no, convienen entre sí (o discrepan ente sí). Por ejemplo:
+    
+    \begin{center}
+             \textbf{E} Ningún perro es ovíparo \\
+             \underline{\textbf{A} Todo `boxer' es perro (V)} \\
+             \textbf{E} Ningún `boxer' es ovíparo (V) \\
+    \end{center}
+    
+    Tenemos que ``ovíparo'' no conviene con ``perro'', y ``boxer'' sí conviene, por lo tanto ``boxer'' no conviene con ``ovíparo''.
+     \end{enumerate}
+     
+    \item ``Dictum de omni'' (locución en latín que significa ``Dicho de todos''). Lo que se afirma universal y distributivamente de un sujeto se afirma de todo lo contenido en la extensión de ese sujeto.
+    Por ejemplo: si decimos ``Todo hombre es racional'', también podemos afirmar ``Todo argentino es racional'', pues argentino esta incluido en la extensión de ``hombre''.
+    
+    \item ``Dictum de nullo'' (locución latina que significa ``Dicho de nadie''). Lo que se niega universal y  distributivamente de un sujeto, se niega de todo lo contenido en la extensión de ese sujeto.
+    Por ejemplo, si decimos ``Ningún hombre es ángel'', también podemos negar ``Ningún porteño es ángel'', pues porteño está incluido en la extensión de ``hombre''.
+ \end{enumerate}
+ 
+ \subsubsection{Figuras del silogismo}
+ 
+ Se le define como la disposición de los términos externos (T y t) con relación al término medio (M).
+ 
+ Existen 4 figuras posibles (o 4 disposiciones posibles)
+ 
+ \begin{tabular}[c]{cccc}
+ 
+      $1^{ra}$  & $2^{da}$ & $3^{ra}$ & $4^{ta}$ \\
+      M - t & T -M & M - T & T - M \\
+      \underline{t - M} & \underline{t - M} & \underline{M - t} & \underline{ M -t } \\
+      t - T & t - T &  t - T & t - T \\
+ \end{tabular}{}
+ 
+ Algunos lógicos consideran a la $4^{ta}$ figura como $1^{ra}$ figura indirecta.
+ 
+ \subsubsection{Modos del silogismo}
+ Se los define como la disposición de las proposiciones según la cantidad (universales o particulares) y la cualidad (afirmativas o negativas).
+ En cada figura hay 16 modos matemáticamente posibles, debido a la combinación de 4
+ 
+ 
+ \begin{tabular}{cc}
+      Premisa mayor: & A A A A E E E E I I I I O O O O U U U U  \\
+      Premisa menor: & A E I O A E I O A E I O A E I O A E I O  \\
+      & $\underbrace{\hspace{19em}}_{16}$ \\
+ \end{tabular}
+  
+ 
+Estas son las combinaciones posibles para cada figurea. Esto da por resultado 64 modos matemáticamente posibles.
+
+Ahora bien, hay una diferencia entre válido y verdadero. Puede ocurrir que un silogismo sea válido pero falso. La verdad o falsedad corresponde al contenido de las premisas (es decir si se corresponden o no con la realidad) y la validez o invalidez a la forma de razonar. Solo serán válidos aquellos modos que no violen ninguna de las siguiente reglas:
+
+\subsubsection{Leyes o reglas del silogismo}
+Con referencia a los términos:
+\begin{enumerate}
+    \item Los términos del silogismo son tres: M, T, y t.
+    \item Los términos de \textbf{t} y \textbf{T} no deeben tener más extensión en la conclusión que en las premisas (véase el cuadro siguiente).
+    \item El \textbf{M} no debe figurar en la conclusión.
+    \item El \textbf{M} no debe estar tomado 2 veces o al menos 1 vez en toda su extensión (véase el cuadro siguiente).
+\end{enumerate}
+
+Con referencia a las premisas:
+
+\begin{enumerate}[resume]
+    \item De 2 negativas, no sigue nada.
+    \item De 2 premisas afirmativas, no pueden engendrar una negativa.
+    \item La conclusión sigue siempre la parte más débil.
+    \item De 2 premisas particulares, no se sigue nada.
+\end{enumerate}
+
+\underline{Importante}: Lo términos \textbf{singulares} siempre se toman en toda su extensión. Por ejemplo, ``Sofía es alumna'' es una premisa universal afirmativa [A] o ``Tomás no es desobediente'' es una premisa universal negativa [E]).
+
+\subsubsection{La extensión de los términos en las proposiciones}
+Los términos (M, t, o t), ya estén como sujeto (S) o como predicado (P) pueden estar tomados en toda \textbf{[T]} su extensión o en parte \textbf{[p]} de su extensión.
+
+\begin{center}
+  \begin{tabular}{cc}
+     \textbf{A} Todo S es P & \textbf{E} Ningún S es P  \\
+     \textbf{I} Algún S es P & \textbf{O} Algún S no es P \\ 
+\end{tabular}{}
+\end{center}
+
+Tenemos en cuenta que S significa sujeto y P significa predicado. Además, notemos que lo que figura en \textbf{negrita} está tomado en toda su extensión.
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+     \textbf{A} & El sujeto siempre estará tomado en toda su extensión y el predicado siempre en parte de \\ & su extensión.  \\
+     \hline
+     \textbf{E} & El sujeto y el predicado siempre estarán ambos tomados en toda su extensión. \\
+     \hline
+     \textbf{I} & El sujeto y el predicado siempre estarán ambos tomados en parte de su extensión. \\
+     \hline
+     \textbf{O} & El sujeto siempre estará tomado en parte de su extensión y el predicado en toda su \\ & extensión. \\
+     \hline
+\end{tabular}
+\end{center}
+
+Usemos esta fórmula mnemotécnica:
+
+\begin{center}
+\begin{tabular}{c c}
+     \textbf{A[T] - [p]              } & \textbf{E[T] - [T]} \\
+     \textbf{ I[p] - [p]             } & \textbf{O[p] - [T]} \\
+\end{tabular}
+\end{center}
+
+\textbf{Ejercicios (primer modo)}: \\
+Indicar si es un modo válido o inválido. Si es inválido indicar la(s) regla(s) que viole. Solo utilizaremos premisas \textbf{verdaderas}, aplicando las reglas del silogismo. \\
+Los ejercicios 1. y 2. servirán de ejemplos.
+
+\begin{enumerate}
+    \item \syllog{\textbf{A} Toda persona persona es poseedora de derechos (V)}
+    {\textbf{A} Todo embrión humano es poseedor de derechos (V)}{\textbf{A} Todo embrión humano es poseedor de derechos (V)}
+    \end{enumerate}
+
+\textbf{Respuesta:} El modo A-A de la $1^a$ figura es válido porque no viola ninguna regla.
+
+\begin{enumerate}[resume]
+    \item  \syllog{\textbf{A}Toda alumna del colegio de la Misericordia es bautizada (V)}
+    {\textbf{E} Ninguna profesora es alumna (V)}{\textbf{E} Ninguna profesora es bautizada (?)}
+\end{enumerate}
+
+\textbf{Respuesta:} El modo A-E de la $1^a$ figura es inválido porque viola la regla que dice que la extensión del término en la conclusión no debe ser mayor que en la premisa respectiva. Aquí en este ejemplo vemos que ``bautizada'' en la $1^a$ premisa está tomado en parte [p] de su extensión y en la conclusión ``bautizada'' esta tomado en toda [T] su extensión.
+
+\begin{enumerate}[resume]
+    \item \syllog{A}{I}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{A}{O}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{E}{A}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{E}{E}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{E}{I}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{E}{O}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{I}{A}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{I}{E}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{I}{I}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{I}{O}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{O}{A}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{O}{E}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{O}{I}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    \item \syllog{O}{O}{\hspace{35em}} 
+    \textbf{Respuesta:}
+    \\
+    
+\end{enumerate}
+
+\newpage
+Ahora podemos distinguir los modos (o formas) validas de la $1^{ra}$ figura. Estos son:
+
+\begin{tabular}{cccc}
+     A & E & A & E  \\
+     A & A & I & I  \\
+     \hline
+     A & E & I & O  \\
+\end{tabular}{}
+ 
+Y así podríamos hacer con los 16 modos de cada una de las figuras restantes.  Veríamos que no todos son válidos. Tendremos,entonces, 64 modos (o formas) matemáticamente posibles de los cuales solo son validos 19 e inválidos 45. Para recordar más fácilmente estos 19 modos válidos los lógicos idearon el siguiente cuadro con palabras (en latín) mnemotécnicas. Estos son,entonces, los 19 modos válidos:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+     $1^a figura$ & $2^a figura$ & $3^a figura$ &  $4^a figura$ \\
+     \hline
+     Barbara & Cesare & Darapati & Ramalip \\
+     Celarent & Camestres & Disamis & Camenes \\
+     Darii & Festino & Datisi & Dimatis \\
+     Ferio & Baroco & Felapton & Fesapo \\
+     && Bocardo & Fesapo \\
+     &&Ferison& \\
+     \hline
+\end{tabular}
+\end{center}
+
+Entonces: \\
+
+\diagram{De 64 modos posibles matemática posibles}{19 modos son válidos (no violan ninguna regla \\ 45 modos son inválidos (violan 1 o más reglas}
+
+\subsubsection{Variantes silogísticas categóricas}
+Algunas de las formas no normales del silogismo categórico son:
+
+\begin{enumerate}
+    \item \underline{El polisilogismo}: Está formado por 2 o más silogismos. Estos están encadenados de la siguiente manera: La conclusión del silogismo antecedente se convierte en en la premisa mayor del silogismo subsiguiente o viceversa. \\
+    
+        \textbf{Ejemplo:} \\
+        \syllog{\textbf{A} Todo lo hecho por Dios es bueno (V)}
+        {\textbf{A} Todo lo creado es hecho por Dios}
+        % {\textbf{A} Todo lo creado es bueno (V)}
+        {}\syllog{a}{a}{a}
+        Conclusión y $1^a$ premisa del siguiente:
+        %TODO Preguntar si los polisilogismos pueden ir no juntos.
+        \begin{itemize}
+            \item \underline{Polisilogismo descendente}: Dada una enunciación, esta vez considerada como la premisa mayor de un futuro silogismo. Una vez construido el silogismo, consideramos a la conclusión de este como una nueva premisa mayor de otro futuro silogismo. Y Así cuantos silogismos podamos concatenar (encadenar). Para concatenar silogismos podemos utilizar cualquiera de los 19 modos válidos y todas sus premisas deben ser verdaderas.
+            \item \underline{Polisilogismo ascendente}: Dada una enunciación, esta es considerada como la conclusión de un futuro silogismo. Una vez construido el silogismo, consideramos a la premisa mayor de este como la conclusión de otro futuro silogismo. Y así cuantos silogismos podamos concactenar. Aquí también los modos deben ser válidos y las premisas verdaderas.
+        \end{itemize}
+        
+    \item \underline{Entinema}: Es un silosigmo con una premisa táctica. Frecuente en la literatura y el lenguaje común *inclusive en el humor). \\
+    \textbf{Ejemplos:} \\
+    \begin{tabular}{cc}
+        \syllog{a}{a}{a} & 
+    \end{tabular}
+    
+    \item \underline{Epíquerema}: Es un silogismo en que 1 o ambas premisas llevan una explicación. \\
+    \textbf{Ejemplo:} 
+    \syllog{\textbf{A} Todo escritor es un ``creador'' (V)}{\textbf{A} Sábato es un escritor [\textit{Tacita}]}{\textbf{A} Sábato es un ``creador'' (V)}
+    \item \underline{Sorites}: Es un silogismo con varios términos medios (M1: término medio 1 y M2: término medio 2). Existen 2 tipos de sórites: Aristotélico y Glocénico.
+    
+    \begin{itemize}
+        \item Sorites Aristotélico \\
+        \textbf{Ejemplo:}
+        \syllog{}{}{}
+    \end{itemize}
+\end{enumerate}
+  
+  \subsubsection{Reducción de modos}
+  En la transformación  de los modos de la $2^a, 3^a, 4^a$ figuras a los modos de la $1^a$, porque esta es la más clara y evidete, aunque en las otras sean también concluyentes.
+  \par Para esto se deben tener en cuenta las consonantes de las 19 palabras mnemotécnicas.
+  \par Debemos tener en cuenta que:
+  
+  \begin{enumerate}
+      \item Cada consonante afecta a la enunciación precedente
+      \item La primera letra de la palabra mnemotécnica indica que:
+      \begin{itemize}
+           \item Todas las comenzadas con B se reducen al modo BARBARA
+           \item Todas las comenzadas con C se reducen al modo CELARENT
+           \item Todas las comenzadas con D se reducen al modo DARII
+           \item Todas las comenzadas con F se reducen a FERIO
+      \end{itemize}
+      \item Otras letras:
+      \begin{itemize}
+          \item M (del latín \textit{mutatio} = mutación, cambio) Las premisas deben trastocarse, pasando la premisa mayor a la premisa menos y vicerversa.
+          \item S (del latín \textit{simplex convertio} = conversión simple) Se invierten sujeto y predicado.
+          \item P (del latín \textit{per accidens} = por acciednte) Se invierten sujeto y predicado y se pasa de universal a particular.
+          \item R (del latín \textit{remanet} = permanece) Permanece inmutada, sin cambiar.
+          \item C (del latín \textit{contradictus} = contradictorio) Reemplaza la precedente por la contradictoria de la conclusión.
+      \end{itemize}
+  \end{enumerate}
+      
+      Nota: las primeras 4 letras se utilizan para la llamada reducción directa y la últia letra se agrega para la llamada reducción indirecta.\\
+    
+      \par \textbf{Ejemplos:}
+      
+      \begin{itemize}
+          \item Reducción del modo CAMESTRES al CELARENT (reducción directa)
+          \item Reducción del modo DARAPTI al DARII (reducción directa)
+          \item Reducción del modo DATISI al modo DARII (reducción directa)
+          \item Reducción del modo CAMENES al modo CELARENT (reducción directa)
+          \item Reducción del modo BAROCO al modo BARBARA (reducción indirecta)
+      \end{itemize}
+      
+      Aquí vemos cómo la premisa mayor y la conclusión no son verdaderas; es más, son absurdas. Es por esto que también se le llama reducción por al absurdo. Notemos también que cambia el término medio (M): en BAROCO es ``cristiano'' y en BARBARA es ``católico''.
+      \par Hagamos la siguiente ejercitación:
+      
+      \begin{itemize}
+          \item Reducir el modo FREISON \\
+          \\
+          \begin{tabular}{|c|c|}
+          \hline
+               F & \hspace{35em} \\
+               \hline
+               R & \hspace{10em} \\
+               \hline
+               E & \hspace{10em} \\
+               \hline
+               I & \hspace{10em} \\
+               \hline
+               S & \hspace{10em} \\
+               \hline
+               O & \hspace{10em} \\
+               \hline
+               N & \hspace{10em} \\
+          \hline
+          \end{tabular}
+         \\
+         \\
+         \item Reducir el modo DISAMIS \\
+          \\
+          \begin{tabular}{|c|c|}
+          \hline
+               D & \hspace{35em} \\
+               \hline
+               I & \hspace{10em} \\
+               \hline
+               S & \hspace{10em} \\
+               \hline
+               A & \hspace{10em} \\
+               \hline
+               M & \hspace{10em} \\
+               \hline
+               I & \hspace{10em} \\
+               \hline
+               S & \hspace{10em} \\
+          \hline
+          \end{tabular}
+          \\
+          \\
+           \item Reducir el modo BAMALIP\\
+          \\
+          \begin{tabular}{|c|c|}
+          \hline
+               B & \hspace{35em} \\
+               \hline
+               A & \hspace{10em} \\
+               \hline
+               M & \hspace{10em} \\
+               \hline
+               A & \hspace{10em} \\
+               \hline
+               L & \hspace{10em} \\
+               \hline
+               I & \hspace{10em} \\
+               \hline
+               P & \hspace{10em} \\
+          \hline
+          \end{tabular}
+          \\
+          \\
+           \item Reducir el modo BOCARDO\\
+          \\
+          \begin{tabular}{|c|c|}
+          \hline
+               B & \hspace{35em} \\
+               \hline
+               O & \hspace{10em} \\
+               \hline
+               C & \hspace{10em} \\
+               \hline
+               A & \hspace{10em} \\
+               \hline
+               R & \hspace{10em} \\
+               \hline
+               D & \hspace{10em} \\
+               \hline
+               O & \hspace{10em} \\
+          \hline
+          \end{tabular}
+      \end{itemize}
+
+\subsection{El Silogismo Hipotético}
+
+Es un silogismo cuya premisa mayor es una proposición hipotética y cuya premisa menor establece o destruye una de las partes de la mayor. Hay 3 tipos de silogismo hipotético:
+\begin{itemize}
+
+    \item \underline{Disyuntivo}: Es aquel cuya premisa mayor es una proposición disyuntiva excluyente y cuya premisa menor establece o destruye una de sus partes.
+    
+    \par Reglas:
+    \begin{enumerate}
+        \item Si la premisa menor establece una de las partes de la disyunción (o premisa mayor), podemos concluir la destrucción de la otra. Esto da origen a la $1^a$ figura del silogismo hipotético disyuntivo.
+        
+        \begin{center}
+        \fbox{    $1^a$ figura: \textbf{Ponendo Tollens} (término latino que significa ``estableciendo destruyo'')
+        }
+        \end{center}
+        
+        \item Si la premisa menos establece una de las partes de la disyunción o premisa mayor, podemos concluir la destrucción de la otra. Esto da origan a la $2^a$ figura del silogismo hipotético disyuntivo.
+        \begin{center}
+            \fbox{
+            $2^a$ figura: \textbf{Tollendo Ponens} (término latino que significa "destruyendo establezco")
+            }
+        \end{center}
+    \end{enumerate}
+    Nota: Aquí tomamos ``figura'' por analogía, pues esta determinada por las premisas y no por los términos. Por otro lado, los modos se establecen atendiendo a la cualidad (afirmativo - negativo) de las proposiciones simples.
+    \\
+    
+    \item \underline{Condicional}: Es aquel cuya premisa mayor es una proposición condicional (``si''). la menor \textbf{establece} o \textbf{destruye} una de sus partes. Si establece tenemos la $1^a$ figura del silogismo hipotético condicional:
+    
+    \begin{center}
+        \fbox{$1^a$ figura: \textbf{Ponendo Ponens} (estableciendo establezco)}
+    \end{center}
+    
+    Si destruye tenemos la $2^a$ figura del silogismo hipotético condicional:
+    
+    \begin{center}
+        \fbox{$2^a$ figura: \textbf{Tollendo Tollens} (destruyendo destruyo}
+    \end{center}
+    
+    \item \underline{Conjuntivo}: Es aquel silogismo cuya premisa mayor es una proposición conjuntiva (``y''), aquella que agirma que las 2 enunciaciones simples que la componen no pueden ser verdaderas  a la vez.
+    
+    \par \textit{Regla:} Si la premisa menor establece una de las partes de la mayor podemos concluir la destrucción de la otra. Esto da origen a la unica figura del silogismo hipotético conjuntivo: 
+    
+    \begin{center}
+        \fbox{Única figura: \textbf{Ponendo Tollens} (estableciendo destruyo)}
+    \end{center}
+\end{itemize}
+
+\subsection{Tipos de Argumentación}
+
+\diagram{Argumentación}{Inductiva \\ \diagram{Deductiva}{Silogismo Categórico \\ \\ Silogismo Hipotético}}
+
+Pues bien, conviene pasar a considerar estos 2 tipos de argumentación: la deducción y la inducción.
+
+\subsubsection{La deducción}
+\underline{Definición}: Es aquella argumentación en la que a partir de 2 o más premisas se infieren sus consecuencias lógicas y necesarias.
+\par \textbf{Ejemplo:}
+\syllog{\textbf{A} Todo manipulador genético es inmoral (V)}{\textbf{\textbf{I} Algún científico es un manipulador genético (V)}}{{\textbf{I} Algún científico es inmoral (V)}}
+
+\par \underline{Relación S - P de la conclusión}: la conveniencia o no entre el S y el P de la conclusión se establece por comparación de estos con un tercer concepto universal (``manipulador genético'').
+
+\begin{center}
+   S $\rightarrow$ tercer concepto universal $\rightarrow$ P
+\end{center}
+
+La conclusión en sí tiene certeza.
+\par Plano: inteligible. Estrictamente racional.
+
+
+\subsubsection{La inducción}
+\underline{Definición}: Es aquella argumentación en la que a partir de una serie de casos singulares, de los que tenemos una experiencia sensible, se infiere un enunciado general.
+\par \textbf{Ejemplo:}
+\syllog{El oro, la plata, el cobre se dilatan por el calor}{El oro, la plata, el cobre son metales}{Todo metal se dilata por el calor}
+
+\par \underline{Relación S - P de la conclusión}: la conveniencia o no entre el S y el P de la conclusión se establece por comparación de estos con una serie de casos singulares, de los que tenemos experiencia sensible y podemos observar.
+
+\begin{center}
+S $\rightarrow$ serie de casos singulares $\rightarrow$ P
+\end{center}
+
+La conclusión en sí: algunas veces tiene certeza y otras probabilidad.
+\par Plano: sensible. Los casos singulares requieren partir de los sentidos.
+
+\subsubsection{Tipos de inducción}
+Hay dos divisiones:
+\begin{itemize}
+    \item \underline{$1^a$ división}: Según la enumeración de los casos singulares
+    \par Si se enumeran todos tenemos la \textbf{inducción completa}.
+    \par \textbf{Ejemplo:}
+    \syllog{La vista, el oído, el gusto, el olfato y el tacto son facultades que radican en órganos.}{La vista, el oído, el gusto, el olfato y el tacto son sentidos externos}{Todo sentido externo radica en órgano.}
+    Hay certeza en la conclusión.
+    
+    \par Si no se enumeran todos, pero sí un número suficiente, tenemos la inducción incompleta.
+    \par \textbf{Ejemplo:}
+    \syllog{el hierro, el cobre, y la plata son conductores de electricidad.}{El hierro, el cobre y la plata son metales.}{Todo metal es conductor de la electricidad.}
+    
+    La conclusión es probable pero legítima. Además, a mayor grado de observación de casos, mayor grado de probabilidad.
+    \\
+    \item \underline{$2^a$ división}: Según la conveniencia entre el sujeto y predicado de la conclusión
+    \par La inteligencia capta que la conveniencia entre el sujeto y el predicado de la conclusión es esencial y necesaria. Es la inducción en materia necesaria.
+    \par La conclusión tiene certeza.
+    \par \textbf{Ejemplo:} El todo es mayor que la parte.
+    \par \textit{Nota:} De aquí surgirá la consideración de los Primeros Principios o Axiomas Lógicos.
+    \par La inteligencia no capta que la conveniencia entre el sujeto y el predicado de la conclusión sea necesaria y esencial. No sabemos que sea necesaria y esencial, pero no quiere decir que no lo sea. Es por esto que se conserva la proposición hasta tanto la contingente. 'Contingente' porque puede modificarse o variar. \par
+    La conclusión tiene probabilidad, pero también legitimidad si el número de casos singulares es suficiente. Además sería de necios observar varios casos e impedir concluir universalmente. \par
+    \textbf{Ejemplo:}
+    \syllog{El oro, la plata, el cobre se dilatan por el calor}{El oro, la plata, el cobre son metales}{Todo metal se dilata por el calor}
+    
+    ``Todo metal se dilata por el calor'' es una conclusión probable y legítima (inclusive en el lenguaje coloquial es ``cierta''). Cabe la posibilidad que exista un metal que no se dilate, lo cual modificaría ``Todo metal se dilata por el calor''. En este ejemplo es un tanto remoto. Insistimos: sería de necios observar un número suficiente de casos singulares y no concluir universalmente.
+    \par Para consolidar y sintetiza el conocimiento:
+    \par Realizar 2 cuadros sinópticos comparando las diferencias y semejanzas entre:
+    \begin{itemize}
+        \item Deducción e inducción
+        \item Tipos de inducción
+    \end{itemize}
+    
+\end{itemize}
+
+
+
+
+
+
+
+
+
+\subsection{La Demostración}
+
+Hasta aquí hemos analizado al silogismo categórico desde un punto de vista formal (es decir, en sus leyes y reglas, y en sus figuras y modos). Ahora debemos atender a un punto de vista material; es decir, en cuanto que es verdadero o falso. Lo formal apunta a la validez e invalidez, y lo material a la verdad o falsedad. Para que un silogismo sea demostrativo debe ser:
+\begin{itemize}
+    \item válido formalmente (no violar ninguna ley, ni regla, ni figura, ni modo)
+    \item verdadero materialmente (que no tenga ninguna premisa falsa)
+\end{itemize}
+Por eso, es necesario, para que haya auténtica ciencia, según Aristóteles (384 - 322 a.C):
+\\
+\\
+\diagram{Silogismos demostrativos}{ Validos formalmente \\ Verdaderos materialmente}\\
+
+\begin{center}
+    \fbox{ Validez + Verdad = Demostración }
+\end{center}
+
+Como el saber humano no se reduce al que se obtiene por las ciencias experimentales, puede considerarse perfectamente válida la teoría de la demostración aristotélica. Por otro lado es sumamente útil para las ciencias humanísticas.
+
+\subsubsection{Definiciones}
+\begin{aquote}{Aristóteles - "Segundos Analíticos", L.1, c.2, Bkk 71b}
+"Por demostración entiendo al silogismo científico a un silogismo cuya posesión misma constituye para nosotros ciencia"
+\end{aquote}
+De aquí, los filósofos escolásticos elaboraron la afirmación:
+\begin{center}
+    \fbox{\textit{Syllogismus efficiens scire} (el silogismo hace saber)}
+\end{center}
+
+\subsubsection{Condiciones de las premisas}
+
+\begin{enumerate}
+    \item \textbf{Verdaderas:} Recordemos que de un antecedente verdadero se sigue un consecuente verdadero. Esto permite una conclusión verdadera. Tenemos certeza.
+    \item \textbf{Primeras:} Todo silogismo supone premisas
+    \begin{itemize}
+        \item Si estas son evidentes no necesitan probarse
+        \item Si estas no son evidentes deben probase por otro silogismo.
+    \end{itemize}
+    \item \textbf{Causas de la conclusión:} En todo silogismo las premisas son causa lógica.
+\end{enumerate}
+
+\subsubsection{Primeros Principios o Axiomas Lógicos}
+Del análisis de la demostración surge la consideración de los primeros principios o axiomas lógicos. Estos primeros principios o axiomas \textbf{no son demostrables}, pues si se lograra una demostración ya no serían principios o axiomas. La esencia de un principio o axioma es su \textbf{indemostrabilidad}.
+
+\begin{center}
+    \fbox{Todo primer principio o axioma lógico es indemostrable}
+\end{center}
+Recordemos los polisilogismos. En ellos la conclusión de un silogismo sirve como premisa mayor del siguiente (polisilogismo descendente) o una premisa mayor sirve como conclusión del siguiente (polisilogismo ascendente). Detengámonos a este último tipo: no podemos ascender indefinidamente en la construcción de polisilogismos. En última instancia debe haber un primer silogismo que parta de un primer principio o axioma. Quien así proceda, estará haciendo ``auténtica ciencia'' según Aristóteles.
+\par Por otro lado, pensemos en cómo se capran los primeros principios o axiomas. Estos son captados inmediatamtne, sin razonar, pues son evidentes de por sí. Además, son captados utilizando la simple aprehensión (operación de la inteligencia), y de manera inductiva, mediante una inducción esencial y abstractiva (recordemos la ``verdad inteligible - inmediata'').
+
+\par Los primeros principios o axiomas se dividen en:
+
+\begin{enumerate}
+\item Primeros principios o axiomas teóricos
+    \begin{enumerate}
+        \item \underline{Principio de no contradicción}: U ente no puede ser y no ser, o ser o no ser lo que es, simultáneamente y bajo la misma relación. O también: No es posible afirmar o niega simultáneamente a un mismo sujeto y un mismo predicado.
+        \item \underline{Principio de identidad}: Todo ente es idéntico a sí mismo
+        \item \underline{Principio de tercero excluído}: Entre ser y no ser no hay término medio. O entre la verdad y la falsedad no hay término medio.
+        \item \underline{Principio de la identidad y discrepancia}
+        \item \underline{Principios de ``dictum de ommni'' y ``doctum de nullo`}
+        \item \underline{Principio de causalidad}: Todo ente tiene una razón de ser (intrínseca o extrínsecamente)
+        \item \underline{Principio de finalidad}: Todo agente (del latín ``agere'', obrar) obra por un fin
+    \end{enumerate}
+\item Primeros principios o axiomas prácticos
+
+\par \textbf{Principio ético:} El bien debe hacerse y el mal evitarse.
+\end{enumerate}
+
+En síntesis, para que haya ciencia debe haber necesariamente demostración silogística, porque ella nos garantiza llegar a la verdad, explicándola por sus causas.
+\par La demostración es deductiva, pero en la primera instancia siempre partiremos de la realidad, y esta es singular; es decir, primero la inducción y después la deducción. En las ciencias humanísticas sera a inducción esencial o abstractiva (inducción en materia necesaria), y en las experimentales o positivas sera la inducción en materia contingente.
+\par Por otro lado, la ciencia busca certeza. La tenemos cuando utilizamos la deducción o la inducción completa o la inducción en materia necesaria. Pero no la tenemos en la inducción incompleta o en materia contingente, pero sí tenemos un grado de probabilidad que se acerca a la certeza.
+\par Somos, entonces, conscientes que aquí existe una intrincada problemática epistemológica con soluciones distintas y muchas veces contradictorias entre las distintas posiciones, y que además suponen planteos filosóficos diversos y complejos.
+
+
+\subsection{La Argumentación Sofística}
+
+Ahora conviene contraponer a la argumentación demostrativa la argumentación sofística.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+     Argumentación demostrativa & Argumentación sofística  \\
+\hline
+     Valida formalmente & Invalida formalmente \\
+     Verdadera materialmente & Verdadera y/o falsa materialmente \\
+\hline
+\end{tabular}
+\end{center}
+
+Algunas distinciones:
+
+\begin{itemize}
+    \item \underline{El paralogismo}: Es un silogismo con premisas verdaderas pero invalido formalmente.
+    \par \textbf{Ejemplo:}
+    \syllog{\textbf{A} Todo católico es cristiano (V)}{\textbf{A} Todo cristiano es creyente (V)}{\textbf{A} Todo creyente es católico}
+    Si bien las premisas son verdaderas, la conclusión es invalida formalmente (A-A-A de la $4^a$ figura es inválido).
+    
+    \item \underline{Demostración errónea}: Es una argumentación buena formalmente, pero tiene la(s) premisa(s) falsa(s).
+    \par \textbf{Ejemplo:}
+    \syllog{\textbf{A} Todo médico es un doctor (F)}{\textbf{A} Todo cristiano es médico (F)}{\textbf{A} Todo cristiano es doctor (F)}
+    Este silogismo es válido formalmente (modo BARBARA de la $1^a$ figura) pero sus premisas son falsas.
+\end{itemize}
+
+Pues bien, el sofisma o falacia no se refiere al paralogismo ni a la demostración errónea. \\
+El sofisma o falacia es una argumentación construida utilizando modos válidos o inválidos con premisas falsas que parecen verdaderas. Hay una intención de engañar.
+\\
+Hay una doble comparación. La demostración errónea utiliza modos válidos. El sofisma puede llegar a utilizar modos válidos. No siempre lo hace.
+\\
+Por otra parte el paralogismo utiliza modos válidos. Otro tanto hace el sofisma. No Siempre.
+\\
+Finalmente, ambos (paralogismo y demostración errónea) difieren del sofisma en que estos no tienen la intención de engañar.
+
+\par (Para la clasificación de los sofismas o falacias véase el capítulo 4 de ``Introducción a la Lógica'' de Irving M. Copi)
+
+
+\newpage
+\section{Lecturas sugeridas}
+
+
+  
+\end{document}

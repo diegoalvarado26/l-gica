@@ -1,0 +1,61 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{imakeidx}
+\usepackage[spanish]{babel}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.1}
+
+\usepackage{enumitem} % para utilizar [noitemsep, nolistsep]
+\setlist[enumerate]{label*=\arabic*.} % te crea automaticamente sub enumeraciones 
+
+\usepackage{schemata}
+\newcommand\diagram[2]{\schema{\schemabox{#1}}{\schemabox{#2}}}
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\section{La Ubicación de la Lógica Proposicional}
+Ubicaremos a la Lógica Proposicional como una parte de la Lógica Matemática o Simbólica. 
+\\
+
+\diagram{Lógica}{ \diagram{Clásica o Filosófica}{Concepto \\ Enunciación \\ Argumentación}\smallskip
+\\ \diagram{Matemática o Simbólica} {Proposicional \\ \diagram{De Términos}{ de Predicados \\ de Clases \\
+de Relaciones}\smallskip}\smallskip}\smallskip
+
+\section{Proposiciones Atómicas y Moleculares}
+Esta lógica toma el nombre de proposicional porque trabaja exclusivamente con proposiciones. Recordemos que la proposición se caracteriza por afirmar o negar algo de algo y de tener la propiedad de ser V (verdadera) o F (falsa).
+
+Estas proposiciones \textbf{se conectan} entre sí por medio de determinadas \textbf{locuciones} que se simbolizarán así:
+
+\begin{center} \bfseries
+     \begin{tabular}{| c | c |} 
+     \hline
+     LOCUCIONES & SÍMBOLO \\ 
+     \hline
+     No; no es cierto que; no es verdad que; etc & -\\ 
+     \hline
+     Y; pero; aunque; sino; etc & . \\
+     \hline
+     O; y/o; a menos que; etc. & \lor \\
+     \hline
+     O; o bien; etc. & \normalfont w \\
+     \hline
+     Si... entonces; es condición suficiente para...; etc.
+     & \supset \\
+     \hline
+     Si, y solo si; ... es condición necesaria y suficiente para...; etc. & \equiv \\ 
+     \hline
+     Ni... ni... & \downarrow \\
+     \hline
+     ... es incompatible.. & / \\
+     \hline
+    \end{tabular}
+\end{center}
+
+
+\end{document}
